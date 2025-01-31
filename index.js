@@ -6,21 +6,31 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Prevent page refresh
 
         // Get input values
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
         const dob = document.getElementById("dob").value;
-        const acceptedTerms = document.getElementById("terms").checked; // Returns true/false
+        const acceptedTerms = document.getElementById("terms").checked ? "true" : "false"; // Ensures true/false display
+
+        if (!name || !email || !password || !dob) {
+            alert("Please fill out all fields.");
+            return;
+        }
 
         // Insert data into the table
-        const row = tableBody.insertRow();
-        row.insertCell(0).innerText = name;
-        row.insertCell(1).innerText = email;
-        row.insertCell(2).innerText = password;
-        row.insertCell(3).innerText = dob;
-        row.insertCell(4).innerText = acceptedTerms;
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${password}</td>
+            <td>${dob}</td>
+            <td>${acceptedTerms}</td>
+        `;
+
+        tableBody.appendChild(row);
 
         // Clear the form after submission
         form.reset();
     });
-})
+});
