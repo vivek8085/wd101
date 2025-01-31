@@ -23,4 +23,4 @@ document.addEventListener("DOMContentLoaded", function() {
         // Clear the form after submission
         form.reset();
     });
-});
+})
