@@ -10,14 +10,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
         const dob = document.getElementById("dob").value;
-        const acceptedTerms = document.getElementById("terms").checked ? "true" : "false"; // Ensures true/false display
+        const acceptedTerms = document.getElementById("terms").checked ? "true" : "false";
 
+        // Ensure all fields are filled
         if (!name || !email || !password || !dob) {
             alert("Please fill out all fields.");
             return;
         }
 
-        // Insert data into the table
+        // Create a new row and insert into table
         const row = document.createElement("tr");
 
         row.innerHTML = `
