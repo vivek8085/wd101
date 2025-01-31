@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form</title>
+    <style>
+        .box{
+            position: relative;
+            display: grid;
+            align-items: center;
+            left:550px;
+        }
+        .sup{
+            /* display: flexbox; */
+            height: 245px;
+            width: 403px;
+            background-color: rgba(203, 91, 91, 0.5);
+        }
+        td{
+            position: relative;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="sup"><h1 style="left: 56px; position: relative;">Registration Form</h1>
+        <form action="Registration.html" method="get">
+            <table>
+                <tr><td>Name</td><td><input type="text" name="name" id="name"></td></tr>
+                <tr><td>Email</td><td><input type="email" name="email" id="email"></td></tr>
+                <tr><td>Password</td><td><input type="password" name="pass" id="pass"></td></tr>
+                <tr><td>Date Of Birth</td><td><input type="date" name="date" id="date"></td></tr>
+                <tr><td><input type="checkbox" name="terms" id="terms">Accept Terms & Conditions</td></tr>
+                <tr><td><input type="submit" value="submit" style="height: 27px; background-color:lawngreen;"></td></tr>
+            </table>
+        </form>
+        </div>
+        <div class="sub">
+            <h1 style="position: relative; left: 132px;">Entries</h1>
+            <table border="2">
+                <thead><th>Name</th><th>Email</th><th>Password</th><th>Date of birth</th><th>Accepted Terms?</th></thead>
+                <tbody>
+    </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
