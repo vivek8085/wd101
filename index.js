@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load existing entries from localStorage
     function loadEntries() {
-        const entries = JSON.parse(localStorage.getItem("entries")) || [];
+        let entries = JSON.parse(localStorage.getItem("entries")) || [];
         tableBody.innerHTML = ""; // Clear table before reloading
 
         entries.forEach(entry => {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate age (18-55 years old)
         const birthDate = new Date(dob);
         const today = new Date();
-        const age = today.getFullYear() - birthDate.getFullYear();
+        let age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
 
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
@@ -60,13 +60,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Save entry
-        const newEntry = { name, email, password, dob, acceptedTerms };
-        const entries = JSON.parse(localStorage.getItem("entries")) || [];
-        entries.push(newEntry);
+        let entries = JSON.parse(localStorage.getItem("entries")) || []; // Use let instead of const
+        entries.push({ name, email, password, dob, acceptedTerms });
         localStorage.setItem("entries", JSON.stringify(entries));
 
         // Update table
-        addEntryToTable(newEntry);
+        addEntryToTable({ name, email, password, dob, acceptedTerms });
 
         // Clear the form after submission
         form.reset();
